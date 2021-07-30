@@ -1,5 +1,5 @@
 function sortByDate() {
-  Logger.log('General.gs > sortByDate');
+  Logger.log('sort.gs > sortByDate');
   
   // Get the sheet to sort
   var activeSheet = SpreadsheetApp.getActiveSheet();
@@ -24,7 +24,7 @@ function sortByDate() {
 };
 
 function sortByCount() {
-  Logger.log('General.gs > sortByCount');
+  Logger.log('sort.gs > sortByCount');
   var activeSheet = SpreadsheetApp.getActiveSheet();
   var lastRowOfData = activeSheet.getLastRow();
   var lastColumnOfData = activeSheet.getLastColumn();
