@@ -4,10 +4,10 @@ function sortByDate() {
   // Get the sheet to sort
   var activeSheet = SpreadsheetApp.getActiveSheet();
   
-  // Get the last row with data to be the last row of the range to sort
+  // Get the number of the last row with data to be the last row of the range to sort
   var lastRowOfData = activeSheet.getLastRow();
   
-  // Get the last column with data to be the last column of the range to sort
+  // Get the number of the last column with data to be the last column of the range to sort
   var lastColumnOfData = activeSheet.getLastColumn();
   
   // Give the first row of data to start sorting in
