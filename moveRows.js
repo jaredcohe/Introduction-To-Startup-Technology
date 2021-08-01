@@ -61,6 +61,9 @@ function moveRows(){
 }; // End: moveRows
 
 // This function moves rows between two sheets in two different files
+// Take the row with the active cell from the source sheet when the button is clicked
+// Move to last open row of target sheet in another file
+// Code in github: https://github.com/jaredcohe/Introduction-To-Startup-Technology/blob/main/moveRows.js
 function moveRowsToAnotherFile() {
     Logger.log("moveRows.gs > moveRowsToAnotherFile");
     
