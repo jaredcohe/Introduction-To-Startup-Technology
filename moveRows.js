@@ -1,14 +1,14 @@
 // This function moves rows from one sheet to another
 // Take the row with the active cell from the source sheet when the button is clicked
 // Move to last open row of target sheet
+// Code in github: https://github.com/jaredcohe/Introduction-To-Startup-Technology/blob/main/moveRows.js
 function moveRows(){
-    Logger.log("moveRows running");
+    Logger.log("moveRows.gs > moveRows");
 
     // Confirmation check
     var ui = SpreadsheetApp.getUi();
     var response = ui.alert("Move Row", "Should we move the selected row to the target sheet?", ui.ButtonSet.YES_NO);
     if (response == ui.Button.YES) {
-
 
         // Start: Get the data to move
 
@@ -31,7 +31,7 @@ function moveRows(){
         // Start: Copy and paste the data
         
             // Get the target sheet
-            var targetSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Move Rows Target Sheet - Script");
+            var targetSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Script Examples - Move Rows Target Sheet");
             
             // Get last row in target sheet
             var lastRowInTargetSheet = targetSheet.getLastRow();
@@ -59,3 +59,20 @@ function moveRows(){
     }; // End: Confirmation check
 
 }; // End: moveRows
+
+// This function moves rows between two sheets in two different files
+function moveRowsToAnotherFile() {
+    Logger.log("moveRows.gs > moveRowsToAnotherFile");
+    
+    var activeSheet = SpreadsheetApp.getActiveSheet();
+    var rowNumberToMove = activeSheet.getActiveRange().getRow();
+    var activeSheetLastColumn = activeSheet.getLastColumn();
+    var rangeToMove = activeSheet.getRange(rowNumberToMove, 1, 1, activeSheetLastColumn).getValues();
+
+    var targetFileId = "1ESqEZCpu3ojd1vrJERU3IaNKSDQGd4GO9LRB5j8O5Bk";
+    var targetFile = SpreadsheetApp.openById(targetFileId);
+    var targetSheet = targetFile.getSheetByName("TargetSheet");
+    var targetSheetLastRow = targetSheet.getLastRow();
+    var targetRange = targetSheet.getRange(targetSheetLastRow + 1, 1, 1, activeSheetLastColumn);
+    targetRange.setValues(rangeToMove);
+}
