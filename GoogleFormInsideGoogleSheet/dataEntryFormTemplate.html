@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    Use this form to enter data into the sheet<br><br>
+    <br>
+
+    Item ID:
+    <input type="number" id="itemId" min="0" max="1000000">
+    <br><br>
+
+    Category:
+    <input type="text" id="category">
+    <br><br>
+
+    Package:
+    <select type="text" id="package">
+      <option value="" disabled selected>Select Package</option>
+      <option value="C-6/4 16OZ">C-6/4 16OZ</option>
+      <option value="K-15.5 GAL HB">K-15.5 GAL HB</option>
+      <option value="K-5.16 GAL SB">K-5.16 GAL SB</option>
+      <option value="B-12 16.9OZ">B-12 16.9OZ</option>
+      <option value="B-1 50.72OZ">B-1 50.72OZ</option>
+      <option value="B-12 25.3OZ">B-12 25.3OZ</option>
+    </select>
+    <br><br>
+
+    Price:
+    <input type="number" id="price" min="0" max="1000000">
+    <br><br>
+    
+    Count:
+    <input type="number" id="count" min="0" max="1000000">
+    <br><br>
+
+    <button onclick='submitData()'>Submit</button>
+
+    <script>
+      console.log("Logs to browser console");
+
+      function submitData(){
+      
+        var itemId = document.getElementById("itemId").value;
+        var category = document.getElementById("category").value;
+        var package = document.getElementById("package").value;
+        var price = document.getElementById("price").value;
+        var count = document.getElementById("count").value;
+
+        google.script.run.onSubmitForm({"itemId": itemId, "category": category, "package": package, "price": price, "count": count});
+        setTimeout(function(){ google.script.run.withSuccessHandler(google.script.host.close()); }, 3000);
+      };
+
+    </script>
+  </body>
+</html>
