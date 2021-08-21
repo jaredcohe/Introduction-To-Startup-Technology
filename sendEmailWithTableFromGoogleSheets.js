@@ -1,4 +1,4 @@
-// Send email gmail with a table
+// Send email gmail with invoice and table
 function sendInvoiceEmail() {
     var ui = SpreadsheetApp.getUi();
     var response = ui.alert('Send Email', 'Should we send the invoice email?', ui.ButtonSet.YES_NO);
@@ -8,7 +8,7 @@ function sendInvoiceEmail() {
         var wholesaleReportingFile = SpreadsheetApp.getActiveSpreadsheet();
         var invoiceSheetName = "Send Email - Script";
         var invoiceSheet = wholesaleReportingFile.getSheetByName(invoiceSheetName);
-        var emailsToSendTo = "hi@opsmba.com";
+        var emailsToSendTo = "hi@opsmba.com"; // You can easily make this an input in the form or from the sheet
         var customer = invoiceSheet.getRange(4, 3).getValue();
         var invoiceDate = invoiceSheet.getRange(3, 3).getValue();
         var invoiceDateAsDate = new Date(invoiceDate);
