@@ -1,4 +1,4 @@
-// Send email gmail with invoice and table
+// Send gmail email with table
 function sendInvoiceEmail() {
     var ui = SpreadsheetApp.getUi();
     var response = ui.alert('Send Email', 'Should we send the invoice email?', ui.ButtonSet.YES_NO);
@@ -18,7 +18,7 @@ function sendInvoiceEmail() {
         var neatDate = invoiceMonth + "/" + invoiceDay + "/" + invoiceYear;
         var subject = "Invoice for " + customer + " on " + neatDate;
         var lastRow = invoiceSheet.getLastRow();
-        var numberOfRows = lastRow - 10;
+        var numberOfRows = lastRow - 10; // Subtract 10 because the table starts in row 10 and we want the number of rows of data
         var dataBody = invoiceSheet.getRange(11, 1, numberOfRows, 6).getValues();
         var rowsOfData = dataBody.length;
         var dataBodyHtml = "";
