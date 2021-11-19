@@ -1,7 +1,7 @@
 // This script runs on a time trigger to once a day pull
 // a range of data from Google Sheets and use that to populate
 // the options in a dropdown in Google Forms
-// Youtube video with more walk through: https://youtu.be/ilSebVz_Nfo
+// Youtube video with more walk through: https://youtu.be/YEDaN0bqzMM
 
 function addItemsToBeerNames() {
 
