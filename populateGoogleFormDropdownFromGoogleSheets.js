@@ -3,7 +3,7 @@
 // the options in a dropdown in Google Forms
 function addItemsToBeerNames() {
 
-    // Get beer names list from v3 file https://docs.google.com/spreadsheets/d/1szcOqJSo6TnTesCoJRQUqHhftKZ_sscVHtDgoN8ukuk/edit#gid=435430128
+    // Get beer names list from Google Sheet
     var ss = SpreadsheetApp.openById("Google Sheets File ID such as 1szcOqJSo6TnTesCoJRQUqHhftKZ_sscVHtDgoN8sdioj");
     var sheet = ss.getSheetByName("Sheet Name");
     var sheetLastRow = sheet.getLastRow();
